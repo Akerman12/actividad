@@ -147,7 +147,6 @@ add(
   ...ESTUDIANTES.map((n) => centro(n, { size: 26 })),
   new Paragraph({ spacing: { before: 1400, after: 0 }, children: [] }),
   centro(FECHA, { size: 24 }),
-  centro(REPO_URL, { size: 22 }),
   new Paragraph({ children: [new PageBreak()] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 }, children: [t('Contenido', { bold: true, size: 28 })] }),
   new TableOfContents('Contenido', { hyperlink: true, headingStyleRange: '1-2' }),
