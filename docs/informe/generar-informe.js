@@ -13,7 +13,9 @@ const RAIZ = path.resolve(__dirname, '..', '..');
 const CAPTURAS = path.join(RAIZ, 'docs', 'evidencias', 'capturas');
 const SALIDA = path.join(RAIZ, 'docs', 'Informe-Taller-ToolCalling.docx');
 
-const AUTOR = 'Sebastian Montes Olivera';
+const ESTUDIANTES = ['Julio García Díaz', 'Leiner Pedroza Sabalza', 'Alison Atenció Ramos', 'Daniel Lorduy Leones'];
+const CURSO = 'Desarrollo Web Avanzado · 7° semestre';
+const AUTOR = ESTUDIANTES.join(', ');
 const FECHA = '18 de noviembre de 2026';
 const REPO_URL = process.env.REPO_URL || 'https://github.com/SebastianMontes-Dev/toolcalling-spring-ai-taller';
 
@@ -144,10 +146,11 @@ add(
   new Paragraph({
     spacing: { after: 700 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: AZUL, space: 12 } },
-    children: [t('Asignatura: Desarrollo Web Avanzado', { size: 28, color: '595959' })],
+    children: [t(`Curso: ${CURSO}`, { size: 28, color: '595959' })],
   }),
   tabla(['Dato', 'Detalle'], [
-    ['Autor', AUTOR],
+    ['Estudiantes', ESTUDIANTES.map((n, i) => t(n, { size: 20, ...(i ? { break: 1 } : {}) }))],
+    ['Curso', CURSO],
     ['Fecha', FECHA],
     ['Tecnologías', 'Java 21, Spring Boot 3.5.16, Spring AI 1.1.8, Maven, VS Code'],
     ['Proveedor del modelo', 'Groq (API compatible con OpenAI), modelo openai/gpt-oss-120b'],
